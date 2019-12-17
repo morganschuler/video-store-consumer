@@ -12,10 +12,10 @@ class App extends Component {
   constructor(props) {
     super(props)
     this.state = {
-    movies: [], //should be an empty array
-    rentalCustomer: [], //not sure what goes here
-    rentalMovie: [], //not sure what goes here
-  }
+      selectedMovie: ‘’,
+      selectedCustomer: ‘’,
+      selectedCustomerId: null,
+      message: ‘’,
 }
 
 
