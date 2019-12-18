@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import axios from 'axios';
 import Customer from './Customer';
 
@@ -28,6 +28,7 @@ class CustomerList extends Component {
             postal_code={customer.postal_code}
             phone={customer.phone}
             account_credit={customer.account_credit}
+            selectCustomer
             />
         );
       })

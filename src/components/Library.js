@@ -31,15 +31,24 @@ class Library extends Component {
       })
   }
 
+  findMovie = (movieId) => {
+    const selectedMovie = this.state.movies.find((movie) => {
+      return movie.id === movieId // return the movie whose ID is equal to the id I passed in
+    })
+    this.props.selectMovie(selectedMovie);
+  }
+
   render() {
     const movieComponents = this.state.movies.map((movie, index) => {
         return (
           <Movie 
+          id={movie.id}
           key={index}
           title={movie.title}
           overview={movie.overview}
           release_date={movie.release_date}
           image_url={movie.image_url}
+          findMovie={this.findMovie}
           />
         )
     })
