@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import axios  from 'axios'
+import axios  from 'axios';
+import Customer from './Customer';
 
 class Customers extends Component {
     constructor() {
@@ -13,7 +14,7 @@ class Customers extends Component {
     }
 
     componentDidMount() {
-      const getURL = "http://localhost:3002/customers"
+      const getURL = "http://localhost:3000/customers"
 
         axios.get(getURL)
           .then((response) => {
@@ -22,6 +23,7 @@ class Customers extends Component {
             const customers = response.data.map((customer) => {
                 const customerEntry = {
                     name: customer.name,
+                    id: customer.id,
                 }
 
                 return customerEntry;
@@ -40,15 +42,18 @@ class Customers extends Component {
     render() {
       const customerComponents = this.state.customers.map((customer, index) => {
         return (
-            <li key={index}>{customer.name}</li>
+            <li key={index}>
+              Name: {customer.name}
+            </li>
         )
     })
         return (
             <div>
-                {customerComponents}
+                { customerComponents }
             </div>
         );
     }
 }
 
-export default Customers 
+export default Customers; 
+

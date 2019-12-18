@@ -1,6 +1,7 @@
 import React from 'react';
 import {
   BrowserRouter as Router,
+  Switch,
   Route,
   Link
 } from "react-router-dom";
@@ -68,20 +69,17 @@ function AppRouter() {
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-        {/* <Switch>
+        <Switch>
           <Route path="/search">
             <Search />
           </Route>
-          <Route path="/rentals">
-            <Rentals />
+          <Route path="/library">
+            <Library />
           </Route>
-          <Route path="/users">
-            <Users />
+          <Route path="/customers">
+            <Customers />
           </Route>
-          <Route path="/">
-            <Home />
-          </Route>
-        </Switch> */}
+        </Switch>
       </div>
     </Router>
   );
