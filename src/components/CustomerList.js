@@ -9,12 +9,48 @@ class CustomerList extends Component {
     this.state = {
       customers: [],
       selectedCustomer: '',
+      errors: '',
     }
   }
 
-  customerInfo() {
-    axios.get('http://localhost:3000/customers')
-    .then((response) => {
+  onSelectedCustomer = (customer) => {
+    this.setState({
+      selectedCustomer: Customer,
+    });
+    this.props.onSelectedCustomer(customer);
+  }
+  makeCollection () {
+    const customerCollection = this.state.customers.map((customer, i) => {
+      < Customer
+        key={customer.id} 
+        id={customer.id} 
+        name={customer.name}
+        registered_at={customer.registered_at}
+        address={customer.address}
+        city={customer.city}
+        state={customer.state}
+        postal_code={customer.postal_code}
+        phone={customer.phone}
+        account_credit={customer.account_credit}
+        selectedCustomer={this.onSelectedCustomer}
+        />;
+      }
+    );
+    return customerCollection
+  }
+  render () {
+    return (
+      <div>
+      <NewStudentForm addStudentCallback={this.addStudent}/>
+      <h3>Students</h3>
+      <ul>
+        {this.makeCollection()}
+      </ul>
+      </div>
+    );
+  }
+
+  customerCollection() {
       return response.data.map((customer) => {
         return (
         < Customer
@@ -28,6 +64,7 @@ class CustomerList extends Component {
             postal_code={customer.postal_code}
             phone={customer.phone}
             account_credit={customer.account_credit}
+            selectedCustomer={this.onSelectedCustomer}
             />
         );
       })
@@ -46,6 +83,9 @@ class CustomerList extends Component {
     console.log(this.state.customers)
   }
   render() {
+    // showingAllCustomers = 
+    console.log(this.state.customers)
+
     return (
       <div>
       <table className="customer-table">
@@ -55,7 +95,7 @@ class CustomerList extends Component {
             <th scope="col">Movies Rented</th>
           </tr>
         </thead>
-        {this.state.customers}
+        { this.state.customers } 
       </table>
       </div>
     )
@@ -63,6 +103,7 @@ class CustomerList extends Component {
 }
 
 // CustomerList.PropTypes = {
+// name:PropTypes.string.isRequired
 
 // }
 

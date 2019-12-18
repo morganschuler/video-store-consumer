@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
   Switch,
@@ -10,6 +10,7 @@ import CustomerList from './components/CustomerList';
 import './App.css';
 import Customer from './components/Customer';
 import Search from './components/Search.js'
+import Library from './components/Library.js';
 
 class App extends Component {
   constructor(props) {
@@ -19,20 +20,31 @@ class App extends Component {
       selectedCustomer: '',
       selectedCustomerId: null,
       message: '',
+      customerList: []
     }
+  };
+
+  componentDidMount() {
+    axios.get('http://localhost:3000/customers')
+      .then((response) => {
+        this.setState({ customerList: response.data });
+      })
+      .catch((error) => {
+        this.setState({ error: error.message });
+      });
+  }
+  onSelectedCustomer = (CustomerId) => {
+    const customerToSelect = this.state.customerList.find(customer => customer.id === CustomerId);
+    this.setState({
+      selectedCustomer: customerToSelect,
+    });
   }
 
-// onSelectedCustomer = (customer) => {
-//   this.setState({
-//     selectedCustomer: Customer,
-//   });
-// }
-
-// onSelectedMovie = (movie) => {
-//   this.setState({
-//     selectedMovie: movie,
-//   });
-// }
+  onSelectedMovie = (movie) => {
+    this.setState({
+      selectedMovie: movie,
+    });
+  }
 
 //checkedOutMovie if selected customer and selected movie
 //send this data to the api
@@ -56,8 +68,7 @@ Index() {
 // }
 
 
-
-AppRouter() {
+render() {
   return (
     <Router>
       <div>
@@ -78,7 +89,6 @@ AppRouter() {
           </ul>
         </nav>
 
-        
         <Switch>
           <Route path="/search">
             <Search />
@@ -87,12 +97,14 @@ AppRouter() {
             <Library />
           </Route>
           <Route path="/customers">
-            <Customers />
+            <CustomerList 
+             customers={this.state.CustomerList}
+             selectPetCallback={this.onSelectPet}/>
           </Route>
         </Switch>
       </div>
     </Router>
-  );
+  )};
 }
 
-export default AppRouter;
+export default App;

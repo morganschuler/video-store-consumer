@@ -1,15 +1,34 @@
-import React from 'react';
+import React, { Component } from 'react';
 
-const Customer = (props) => {
-  const onSelectClick = (event) => {
+export class Customer extends Component {
+  constructor(props) {
+    super(props);
 
-props.selectCustomerCallback(props.name)
+    this.state = {
+      selectedCustomer: {}
+    };
   }
+
+toSelect = (props) => {
+  const selectedCustomer = this.props.customer
+
+  this.setState({
+    selectedCustomer: selectedCustomer
+  });
+
+  this.props.selectedCustomer(selectedCustomer);
+}
+
+  render () {
+    const {id, name, address, city, state, postal_code, phone, account_credit, movies_checked_out_count } = this.props.customer
     return (
       <section>
-      {props.name}
-      {<button id={props.id} onClick={onSelectClick}>Select Customer</button>}
+      <h2>{name}</h2>
+      <p>{id}</p>
+      <p>{address}</p>
+      {/* {<button id={props.id} onClick={this.toSelect}>Select Customer</button>} */}
       </section>
     );
+  }
 }
 export default Customer; 
