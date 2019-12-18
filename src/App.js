@@ -17,27 +17,17 @@ class App extends Component {
     this.state = {
       selectedMovie: '',
       selectedCustomer: '',
-      selectedCustomerId: null,
+      // selectedCustomerId: null,
       message: '',
-      customerList: []
     }
   };
 
-  componentDidMount() {
-    axios.get('http://localhost:3000/customers')
-      .then((response) => {
-        this.setState({ customerList: response.data });
-      })
-      .catch((error) => {
-        this.setState({ error: error.message });
-      });
-  }
-  onSelectedCustomer = (CustomerId) => {
-    const customerToSelect = this.state.customerList.find(customer => customer.id === CustomerId);
-    this.setState({
-      selectedCustomer: customerToSelect,
-    });
-  }
+  // onSelectedCustomer = (CustomerId) => {
+  //   const customerToSelect = this.state.customerList.find(customer => customer.id === CustomerId);
+  //   this.setState({
+  //     selectedCustomer: customerToSelect,
+  //   });
+  // }
 
     selectMovie = (movie) => {
   this.setState({
@@ -45,7 +35,7 @@ class App extends Component {
   });
 }
 
-  selectCustomer = (customer) => {
+    selectCustomer = (customer) => {
   this.setState({
     selectedCustomer: customer,
   });
@@ -116,10 +106,9 @@ render() {
             <Route path="/search">
               <Search />
             </Route>
+            <Route path="/rentals" render={() => <Rentals movie={this.selectMovie} customer={this.selectCustomer} />}/>
             <Route path="/library" render={() => <Library selectMovie={this.selectMovie} />}/>
-            <Route path="/customers" render={() => <Library selectCustomer={this.selectCustomer} />}>
-              <CustomerList />
-            </Route>
+            <Route path="/customers" render={() => <CustomerList selectCustomer={this.selectCustomer} />}/>
           </Switch>
         </div>
       </Router>

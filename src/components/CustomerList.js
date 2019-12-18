@@ -89,7 +89,7 @@ class CustomerList extends Component {
     axios.get('http://localhost:3000/customers')
     .then((response) => {
       this.setState({
-        customers: response.data })
+        customers: response.data });
     })
     .catch((error) => {
       this.setState({error: error.message});
@@ -108,7 +108,7 @@ class CustomerList extends Component {
     const customerComponents = this.state.customers.map((customer, index) => {
       return (
         < Customer
-            key={customer.id} 
+            key={index} 
             id={customer.id} 
             name={customer.name}
             registered_at={customer.registered_at}
