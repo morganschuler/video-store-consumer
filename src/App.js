@@ -27,6 +27,12 @@ class App extends Component {
     selectedMovie: movie,
   });
 }
+
+  selectCustomer = (customer) => {
+  this.setState({
+    selectedCustomer: customer,
+  });
+}
   
 
 // onSelectedCustomer = (customer) => {
@@ -72,6 +78,7 @@ render() {
           <nav>
             <ul>
               {this.state.selectedMovie.title}
+              {this.state.selectedCustomer.name}
               <li>
                 <Link to="/">Home</Link>
               </li>
@@ -93,7 +100,7 @@ render() {
               <Search />
             </Route>
             <Route path="/library" render={() => <Library selectMovie={this.selectMovie} />}/>
-            <Route path="/customers">
+            <Route path="/customers" render={() => <Library selectCustomer={this.selectCustomer} />}>
               <CustomerList />
             </Route>
           </Switch>
