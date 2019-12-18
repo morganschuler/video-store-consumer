@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {
   BrowserRouter as Router,
   Route,
@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import './App.css';
 import Customers from './components/Customers.js'
+import Library from './components/Library.js'
 
 import Search from './components/Search.js'
 // class App extends Component {
@@ -34,9 +35,9 @@ function Index() {
 //   return <h2>Search</h2>;
 // }
 
-function Library() {
-  return <h2>Library</h2>;
-}
+// function Library() {
+//   return <h2>Library</h2>;
+// }
 
 // function Customers() {
 //   return <h2>Customers</h2>;
