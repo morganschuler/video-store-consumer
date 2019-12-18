@@ -131,6 +131,7 @@ class CustomerList extends Component {
 }
 
 // CustomerList.PropTypes = {
+// name:PropTypes.string.isRequired
 
 // }
 

@@ -19,7 +19,24 @@ class App extends Component {
       selectedCustomer: '',
       selectedCustomerId: null,
       message: '',
+      customerList: []
     }
+  };
+
+  componentDidMount() {
+    axios.get('http://localhost:3000/customers')
+      .then((response) => {
+        this.setState({ customerList: response.data });
+      })
+      .catch((error) => {
+        this.setState({ error: error.message });
+      });
+  }
+  onSelectedCustomer = (CustomerId) => {
+    const customerToSelect = this.state.customerList.find(customer => customer.id === CustomerId);
+    this.setState({
+      selectedCustomer: customerToSelect,
+    });
   }
 
     selectMovie = (movie) => {
