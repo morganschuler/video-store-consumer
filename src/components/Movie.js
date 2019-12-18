@@ -15,7 +15,8 @@ const Movie = (props) => {
       <button
         type="button"
         onClick={() => {props.findMovie(props.id)}}>
-      Select Me {console.log(props.title)}
+          {console.log(props.id)}
+      Select Me
       </button>
     </div>
   )

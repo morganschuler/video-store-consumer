@@ -15,16 +15,17 @@ class Library extends Component {
   componentDidMount() {
     axios.get('http://localhost:3000/movies')
       .then((response) => {
-        const movies = response.data.map((movie) => {
-          const movieListing = {
-            title: movie.title,
-            overview: movie.overview,
-            release_date: movie.release_date,
-            image_url: movie.image_url
-          }
-          return movieListing
-        })
-        this.setState({ movies });
+        // const movies = response.data.map((movie) => {
+        //   // const movieListing = {
+        //   //   title: movie.title,
+        //   //   overview: movie.overview,
+        //   //   release_date: movie.release_date,
+        //   //   image_url: movie.image_url
+        //   // }
+        //   return movieListing
+        // })
+        this.setState({ 
+          movies: response.data });
       })
       .catch((error) => {
         this.setState({error: error.message});
@@ -35,7 +36,9 @@ class Library extends Component {
     const selectedMovie = this.state.movies.find((movie) => {
       return movie.id === movieId // return the movie whose ID is equal to the id I passed in
     })
+    {console.log(selectedMovie)}
     this.props.selectMovie(selectedMovie);
+
   }
 
   render() {
@@ -55,6 +58,7 @@ class Library extends Component {
     return (
       <div>
         { movieComponents }
+        {console.log(movieComponents)}
       </div>
     )
   }
