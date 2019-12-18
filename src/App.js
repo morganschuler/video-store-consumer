@@ -11,22 +11,21 @@ import Library from './components/Library.js'
 
 import Search from './components/Search.js'
 
-// class App extends Component {
-//   render() {
-//     return (
-//       <div className="App">
-//         <header className="App-header">
-//           <img src={logo} className="App-logo" alt="logo" />
-//           <h1 className="App-title">That's showbiz, baby!</h1>
-//         </header>
-//         <p className="App-intro">
-//            <p>Search</p> 
-//            <p>Rental Library</p> 
-//            <a>Customers</a> 
-//         </p>
-//       </div>
-//     );
-//   }
+class App extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      selectedMovie: [],
+      selectedCustomer: '',
+      selectedCustomerId: null,
+      message: '',
+    }
+  }
+
+// onSelectedCustomer = (customer) => {
+//   this.setState({
+//     selectedCustomer: Customer,
+//   });
 // }
 
 function Index() {

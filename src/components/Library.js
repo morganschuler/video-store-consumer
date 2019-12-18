@@ -13,8 +13,7 @@ class Library extends Component {
   }
 
   componentDidMount() {
-    const getURL = 'http://localhost:3000/movies'
-    axios.get(getURL)
+    axios.get('http://localhost:3000/movies')
       .then((response) => {
         const movies = response.data.map((movie) => {
           const movieListing = {
@@ -52,4 +51,4 @@ class Library extends Component {
   }
 }
 
-export default Library 
+export default Library;
