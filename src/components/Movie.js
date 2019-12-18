@@ -1,6 +1,11 @@
 import React from 'react'
 
 const Movie = (props) => {
+  const onMovieSelect = (event) => {
+    const movie = props.title;
+
+    this.props.onMovieSelectCallback(movie)
+  }
   return (
     <div>
       <h3>{props.title}</h3>
