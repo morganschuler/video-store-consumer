@@ -3,6 +3,7 @@ import SearchResults from './SearchResults';
 // import movie_data from './movie-data.json'
 import SearchForm from './SearchForm';
 import axios  from 'axios';
+import Message from './Message'
 
 class Search extends Component {
     constructor() {
@@ -14,6 +15,10 @@ class Search extends Component {
             error:null
         }
     }
+
+    reportStatus = (text) => {
+      this.setState({message: text})
+  }
 
     movieSearchCallback = (title) => {
       console.log(title)
@@ -32,9 +37,10 @@ class Search extends Component {
                     return movieResult
                 })
                 this.setState({ movies });
-            })
+                this.reportStatus("Search successful!")            })
             .catch((error) => {
                 this.setState({error: error.message });
+                this.reportStatus(error.message)
             })
   }
 
@@ -43,6 +49,7 @@ class Search extends Component {
       <div>
       <SearchForm movieSearchCallback={this.movieSearchCallback}/>
       <SearchResults movieData={this.state.movies}/>
+      <Message message={this.state.message} />
       </div>
     );
   }

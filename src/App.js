@@ -10,6 +10,7 @@ import Customers from './components/Customers.js'
 import Library from './components/Library.js'
 
 import Search from './components/Search.js'
+
 // class App extends Component {
 //   render() {
 //     return (
@@ -67,8 +68,7 @@ function AppRouter() {
           </ul>
         </nav>
 
-        {/* A <Switch> looks through its children <Route>s and
-            renders the first one that matches the current URL. */}
+        
         <Switch>
           <Route path="/search">
             <Search />
@@ -78,7 +78,7 @@ function AppRouter() {
           </Route>
           <Route path="/customers">
             <Customers />
-          </Route>
+          </Route>y
         </Switch>
       </div>
     </Router>
