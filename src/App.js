@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
-  Switch,
   Route,
   Link
 } from "react-router-dom";
@@ -26,7 +25,25 @@ import './App.css';
 //   }
 // }
 
-export default function App() {
+function Index() {
+  return <h2>Home</h2>;
+}
+
+function Search() {
+  return <h2>Search</h2>;
+}
+
+function Library() {
+  return <h2>Library</h2>;
+}
+
+function Customers() {
+  return <h2>Customers</h2>;
+}
+
+
+
+function AppRouter() {
   return (
     <Router>
       <div>
@@ -39,17 +56,17 @@ export default function App() {
               <Link to="/search">Search</Link>
             </li>
             <li>
-              <Link to="/rentals">Rental List</Link>
+              <Link to="/library">Library</Link>
             </li>
             <li>
-              <Link to="/users">Users</Link>
+              <Link to="/customers">Customers</Link>
             </li>
           </ul>
         </nav>
 
         {/* A <Switch> looks through its children <Route>s and
             renders the first one that matches the current URL. */}
-        <Switch>
+        {/* <Switch>
           <Route path="/search">
             <Search />
           </Route>
@@ -62,26 +79,10 @@ export default function App() {
           <Route path="/">
             <Home />
           </Route>
-        </Switch>
+        </Switch> */}
       </div>
     </Router>
   );
 }
 
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function Search() {
-  return <h2>Search</h2>;
-}
-function Rentals() {
-  return <h2>Rentals</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
-}
-
-
-// export default App;
+export default AppRouter;
