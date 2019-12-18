@@ -4,9 +4,10 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import logo from './logo.svg';
 import './App.css';
+import Customers from './components/Customers.js'
 
+import Search from './components/Search.js'
 // class App extends Component {
 //   render() {
 //     return (
@@ -29,17 +30,17 @@ function Index() {
   return <h2>Home</h2>;
 }
 
-function Search() {
-  return <h2>Search</h2>;
-}
+// function Search() {
+//   return <h2>Search</h2>;
+// }
 
 function Library() {
   return <h2>Library</h2>;
 }
 
-function Customers() {
-  return <h2>Customers</h2>;
-}
+// function Customers() {
+//   return <h2>Customers</h2>;
+// }
 
 
 
