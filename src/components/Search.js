@@ -52,13 +52,13 @@ class Search extends Component {
             "movie": {
               "title": movie.title,
               "overview": movie.overview,
-              // "release_date": movie.release_date,
-              // "image_url": imageUrl,
-              // "external_id": movie.external_id,
-              // "inventory": 1
+              "release_date": movie.release_date,
+              "image_url": movie.image_url,
+              "external_id": movie.external_id,
+            //   "inventory": 1
             }
     }
-
+    console.log(movieDataToSendToApi)
     axios.post('http://localhost:3000/movies', movieDataToSendToApi)
     .then((response) => {
       console.log(response)

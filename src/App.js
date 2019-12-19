@@ -9,7 +9,9 @@ import './App.css';
 import Library from './components/Library.js'
 import CustomerList from './components/CustomerList.js'
 import Search from './components/Search.js'
-import Customer from './components/Customer.js'
+// import Customer from './components/Customer.js'
+import Rentals from './components/Rentals.js'
+
 
 class App extends Component {
   constructor(props) {
@@ -18,7 +20,7 @@ class App extends Component {
       selectedMovie: '',
       selectedCustomer: '',
       // selectedCustomerId: null,
-      message: '',
+      // message: '',
     }
   };
 
@@ -40,43 +42,6 @@ class App extends Component {
     selectedCustomer: customer,
   });
 }
-  
-
-// onSelectedCustomer = (customer) => {
-//   this.setState({
-//     selectedCustomer: Customer,
-//   });
-// }
-
-// onSearchChange = (searchTerm) => {
-//   this.setState({
-//     searchTerm,
-//   });
-// }
-
-// filteredMovieList = () => {
-//   return this.state.movieList.filter((movie) => {
-//     const text = `${ movie.name }`.toLocaleLowerCase();
-//     return text.includes(this.state.searchTerm.toLocaleLowerCase());
-//   });
-// }
-
-// function Index() {
-//   return <h2>Home</h2>;
-// }
-
-// function Search() {
-//   return <h2>Search</h2>;
-// }
-
-// function Library() {
-//   return <h2>Library</h2>;
-// }
-
-// function Customers() {
-//   return <h2>Customers</h2>;
-// }
-
 
 render() {
     return (
@@ -84,8 +49,6 @@ render() {
         <div>
           <nav>
             <ul>
-              {this.state.selectedMovie.title}
-              {this.state.selectedCustomer.name}
               <li>
                 <Link to="/">Home</Link>
               </li>
@@ -98,15 +61,20 @@ render() {
               <li>
                 <Link to="/customers">Customers</Link>
               </li>
+              <li>
+              <Rentals movie={this.state.selectedMovie} customer={this.state.selectedCustomer}/>
+              </li>
             </ul>
           </nav>
+          {console.log(this.state.selectedMovie)}
+          {console.log('MORGAN')}
 
           
           <Switch>
             <Route path="/search">
               <Search />
             </Route>
-            <Route path="/rentals" render={() => <Rentals movie={this.selectMovie} customer={this.selectCustomer} />}/>
+            {/* <Route path="/rentals"  />}/> */}
             <Route path="/library" render={() => <Library selectMovie={this.selectMovie} />}/>
             <Route path="/customers" render={() => <CustomerList selectCustomer={this.selectCustomer} />}/>
           </Switch>
