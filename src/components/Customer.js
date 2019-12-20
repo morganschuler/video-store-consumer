@@ -2,8 +2,6 @@ import React from 'react';
 import { Table } from 'reactstrap';
 import "./CustomerList.css";
 
-
-
 const Customer = (props) => {
 
   return (
@@ -30,17 +28,4 @@ const Customer = (props) => {
   );
 }
 
-export default Customer; 
-
-
-// return (
-//   <div>
-//     <ListGroup>
-//     <ListGroupItem tag="a" href="#"
-//       onClick={() => {props.findCustomer(props.id)}}>
-//         {console.log(props.id)}
-//         {props.name} 
-//     </ListGroupItem>
-//     </ListGroup>
-//   </div>
-// )
+export default Customer;
