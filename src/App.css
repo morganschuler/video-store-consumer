@@ -1,13 +1,59 @@
 .App {
   text-align: center;
+  /* background-color: plum; */
+  margin-left: 280px; /* Same as the width of the sidebar */
+  /* padding: 0px 10px; */
+  background-color: rgb(255, 222, 133);
 }
 
-.App-logo {
+.Menu {
+  list-style-type: none;
+  height: 100%; /* Full-height: remove this if you want "auto" height */
+  width: 280px; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 20px;
+  padding-right: 40px;
+  color: yellow;
+  background-color: orange;
+
+}
+
+.Menu a {
+  padding: 0px 20px 8px 16px;
+  text-decoration: none;
+  font-size: 40px;
+  color: rgba(202, 73, 73, 0.904);
+  display: block;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  text-align: left;
+  justify-content: center;
+  align-content: center;
+}
+
+.Menu a:hover {
+  color: yellow;
+}
+
+
+
+/* .sidenav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+} */
+
+/* .App-logo {
   animation: App-logo-spin infinite 20s linear;
   height: 80px;
 }
 
-.App-header {
+.App {
   background-color: #222;
   height: 150px;
   padding: 20px;
@@ -25,4 +71,4 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
-}
+} */
