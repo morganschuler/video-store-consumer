@@ -1,7 +1,5 @@
 import React from 'react';
-import { ListGroup, 
-        ListGroupItem,
-        Table } from 'reactstrap';
+import { Table } from 'reactstrap';
 import "./CustomerList.css";
 
 
@@ -24,7 +22,7 @@ const Customer = (props) => {
           <th scope="row">{props.id}</th>
           <td className="table-name" onClick={() => {props.findCustomer(props.id)}}>{props.name}</td>
           <td className="table-credit"onClick={() => {props.findCustomer(props.id)}}>{props.account_credit}</td>
-          <td className="table-phone" onClick={() => {props.findCustomer(props.id)}}>{props.phone}</td>
+      <td className="table-phone" onClick={() => {props.findCustomer(props.id)}}>{props.phone}</td>
         </tr>
         </tbody>
       </Table>

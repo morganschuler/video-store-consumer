@@ -9,7 +9,7 @@ import './App.css';
 import Library from './components/Library.js'
 import CustomerList from './components/CustomerList.js'
 import Search from './components/Search.js'
-// import Customer from './components/Customer.js'
+import Customer from './components/Customer.js'
 import Rentals from './components/Rentals.js'
 
 
