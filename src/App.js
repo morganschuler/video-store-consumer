@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
+import './App.css';
 import {
   BrowserRouter as Router,
   Switch,
   Route,
   Link
 } from "react-router-dom";
-import './App.css';
 import Library from './components/Library.js'
 import CustomerList from './components/CustomerList.js'
 import Search from './components/Search.js'
 import Customer from './components/Customer.js'
 import Rentals from './components/Rentals.js'
+import 'bootstrap/dist/css/bootstrap.min.css';
+import Home from './components/Home.js'
+import './components/Home.css';
+
+
 
 
 class App extends Component {
@@ -44,24 +49,27 @@ class App extends Component {
 }
 
 render() {
+
     return (
+    <div className="App">
+
       <Router>
         <div>
           <nav>
-            <ul>
-              <li>
-                <Link to="/">Home</Link>
+            <ul className="Menu">
+              <li className="side">
+                <Link to="/home">HOME</Link>
               </li>
-              <li>
-                <Link to="/search">Search</Link>
+              <li className="side">
+                <Link to="/library">RENTALS</Link>
               </li>
-              <li>
-                <Link to="/library">Library</Link>
+              <li className="side">
+                <Link to="/customers">CUSTOMERS</Link>
               </li>
-              <li>
-                <Link to="/customers">Customers</Link>
+              <li className="side">
+                <Link to="/search">SEARCH</Link>
               </li>
-              <li>
+              <li className="selection">
               <Rentals movie={this.state.selectedMovie} customer={this.state.selectedCustomer}/>
               </li>
             </ul>
@@ -77,9 +85,12 @@ render() {
             {/* <Route path="/rentals"  />}/> */}
             <Route path="/library" render={() => <Library selectMovie={this.selectMovie} />}/>
             <Route path="/customers" render={() => <CustomerList selectCustomer={this.selectCustomer} />}/>
+            <Route path="/home" render={() => <Home />}/>
+
           </Switch>
         </div>
       </Router>
+      </div>
     )
   };
 }

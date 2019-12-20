@@ -56,7 +56,7 @@ class Library extends Component {
         )
     })
     return (
-      <div>
+      <div className="library">
         { movieComponents }
         {console.log(movieComponents)}
       </div>
@@ -65,3 +65,4 @@ class Library extends Component {
 }
 
 export default Library;
+

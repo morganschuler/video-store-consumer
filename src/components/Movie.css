@@ -1,0 +1,49 @@
+/* .grid-container {
+  display: grid;
+  grid-column-gap: 50px;
+} */
+/* .movie {
+  border: 1px solid black;
+  padding: 1em;
+  margin: 4rem 4.5rem;
+  max-width: 900px;
+  border-radius: 5px;
+  display: grid;
+  /* grid-template-columns: 1fr fr; */
+  /* align-items: center;
+}
+
+.content {
+  padding-left: 1em;
+  text-align: center;
+  font-weight: 100;
+}
+
+.image {
+  width: 400px;
+    height: 500px;
+    margin: 0 auto;
+    padding: 5%
+}
+
+.button {
+  grid-row-start: 4;
+  color: white;
+  background-color: #374B4A;
+  font-size: 1.1em;
+  border-radius: 5px;
+  padding: .25em .5em; */
+
+
+
+
+ul {
+  display: inline-block;
+}
+
+.img {
+  height: 400px;
+}
+
+
+

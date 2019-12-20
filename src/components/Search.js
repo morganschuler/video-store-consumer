@@ -1,6 +1,10 @@
 import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 import axios from 'axios';
+import "./Search.css"
+import Card from 'react-bootstrap/Card'
+import Button from 'react-bootstrap/Button'
+
 
 
 class Search extends Component {
@@ -85,25 +89,49 @@ class Search extends Component {
    render() {
         const eachMovie = this.state.searchResults.map((movie, i) => {
             return (
-                <div key={i}>
-                    <section className="movie_search_card" key={i}>
-                        <img src={movie.image_url} alt="movie poster" className="movie_IMG" />
-                        <button
+                <section className="movie_search_card" key={i}>
+                <ul>
+                <Card style={{ width: "30rem" }}>
+                    <Card.Header>
+                        <Card.Img className="img" variant="top" src={movie.image_url} />
+                        <Card.Title className="movie-title">{movie.title}</Card.Title>
+                        <Button
+                        variant="warning"
+                        type="button"
                         onClick={() => {this.onAddtoRentalButtonHandler(movie)}}>
                             Add: {movie.title}
-                        </button>
-                    </section>
-                </div>
+                        </Button>
+                    </Card.Header>
+                    </Card>
+                    <Card style={{ width: "30rem" }}>
+                        <Card.Body>
+                        <Card.Text>{movie.overview}</Card.Text>
+                        <Card.Text>Release Date: {movie.release_date}</Card.Text>
+                     </Card.Body>
+                     </Card>
+
+                    {/* <Card style={{ width: "20rem" }}>
+                        <img src={movie.image_url} alt="movie poster" className="movie_IMG" />
+                        <Card.Text>{movie.overview}</Card.Text>
+                        <br></br>
+                        <Button
+                        variant="warning"
+                        type="button"
+                        onClick={() => {this.onAddtoRentalButtonHandler(movie)}}>
+                            Add: {movie.title}
+                        </Button>
+                    </Card> */}
+                    </ul>
+            </section>
             )
         })
         const successSection = (this.state.apiSuccess) ? (<section>{this.state.apiSuccess} </section>) : null;
        const errorSection = (this.state.apiError) ? (<section> Error: {this.state.apiError}</section>) : null;
     return (
         <main className="movie_search">
-            <h2>Movie Search Page</h2>
-            <p>Search for a movie!</p>
+            <h1>Movie Search Page</h1>
+            <p>Search for a movie to add to the rental library!</p>
             <label>
-                Movie Title:
                 <input
                 type="text"
                 onChange={this.onSearchChange}>

@@ -1,0 +1,10 @@
+.homepage {
+  min-height: 100vh;
+  position: relative;
+  background-color: mustard;
+}
+
+img {
+  width: 110%;
+  height: 800px
+}

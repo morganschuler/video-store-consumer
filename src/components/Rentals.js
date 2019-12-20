@@ -8,6 +8,9 @@
 
 import React, { Component } from 'react'
 import axios from 'axios'
+import "./Rentals.css"
+import Button from 'react-bootstrap/Button'
+
 
  let date = new Date();
 date.setDate(new Date().getDate() + 7);
@@ -44,14 +47,18 @@ class Rentals extends Component {
   showRental = () => {
     const showMovie = this.props.movie ? <p>{this.props.movie.title}</p> : "";
     const showCustomer = this.props.customer ? <p>{this.props.customer.name}</p> : "";
-    const showRental= this.state.rental && <p>{this.state.rental.id}</p>;
+    const showRental= this.state.rental && <p className="success">Successfully rented!</p>;
+    // Rental ID: {this.state.rental.id}
     return(
       <div>
         <p>
           {showMovie}
           {showCustomer}
           {showRental}
-          <button onClick={() => {this.makeRental(this.props.customer, this.props.movie, this.state.dueDate)}}> Check out!</button>
+          <Button 
+          variant="warning"
+          type="button"
+          onClick= {() => {this.makeRental(this.props.customer, this.props.movie, this.state.dueDate)}}> Check out!</Button>
         </p>
       </div>
     )
@@ -60,7 +67,8 @@ class Rentals extends Component {
   render(){
     const renderRental = this.props.movie || this.props.customer ? <p>{this.showRental()}</p> : "";
     return (
-      <div>
+      <div className="render">
+        <p>Please make a customer and rental selection:</p>
         { renderRental }
         {console.log('Morgan')}
         {console.log(this.props)}
